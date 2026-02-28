@@ -61,7 +61,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Análisis exploratorio de datos - Espectro de respuesta (Ing. Sísmica)" href="bivariado.html" />
-    <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
+    <link rel="prev" title="Análisis de la aceleración máxima (PGA) registrada por las estaciones sísmicas a partir de un evento sísmico" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -175,7 +175,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Welcome to your Jupyter Book
+                    Análisis de la aceleración máxima (PGA) registrada por las estaciones sísmicas a partir de un evento sísmico
                 </a>
             </li>
         </ul>
@@ -847,6 +847,7 @@ Se observa cola derecha (pocos casos con valores altos), porque la ECDF se “ap
 <img alt="_images/2288e5a6049c13f94760d432ef0ab58e0e340fee68cd88693e08d66a243b5fb6.png" src="_images/2288e5a6049c13f94760d432ef0ab58e0e340fee68cd88693e08d66a243b5fb6.png" />
 </div>
 </div>
+<p>Se puede evidenciar una gran cantidad de datos atípicos a la derecha por encima de 0.1, con una mediana entre 0.01 y 0.02 que sugiere que mas del 50% de los datos se encuentran por debajo de 0.02 g (unidades de gravedad)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resumen de medidas de tendencia y dispersión para la variable objetivo</span>
@@ -965,6 +966,7 @@ max: 7.9
 <img alt="_images/138a56fcd31716c0075e2fd6884b1e3cb88474a8de6217aae7ff17d7c29451c8.png" src="_images/138a56fcd31716c0075e2fd6884b1e3cb88474a8de6217aae7ff17d7c29451c8.png" />
 </div>
 </div>
+<p>El boxplot indica que no hay valores atipicos. Mas del 75% de los datos se encuentran por debajo de magnitudes de 7 lo que indica que el 25% restante son sismos de gran magnitud.</p>
 </section>
 <section id="hypocenter-depth-km-profundidad-hipocentral">
 <h3>Hypocenter Depth (km). Profundidad hipocentral<a class="headerlink" href="#hypocenter-depth-km-profundidad-hipocentral" title="Link to this heading">#</a></h3>
@@ -1046,6 +1048,7 @@ max: 58.7
 <img alt="_images/35424c0ca17909451c059a8f8c4db5741ffcc63f3ceeb2e3fdab03eb532f242c.png" src="_images/35424c0ca17909451c059a8f8c4db5741ffcc63f3ceeb2e3fdab03eb532f242c.png" />
 </div>
 </div>
+<p>Se puede evidenciar una gran cantidad de outliers y muy separados entre si. Sugiere que un poco mas del 75% de los datos se encuentran por debajo de 20km de profundidad.</p>
 </section>
 <section id="rrup-openquake-distancia-de-ruptura">
 <h3>Rrup_OpenQuake (Distancia de ruptura)<a class="headerlink" href="#rrup-openquake-distancia-de-ruptura" title="Link to this heading">#</a></h3>
@@ -1131,6 +1134,8 @@ Notar que se usó la escala logarítmica en el eje horizontal.</p>
 <img alt="_images/9c2ce3328ca646c81b8a339cea126bf4d2bf4019e9a0c6bc971ce7d7acb8c892.png" src="_images/9c2ce3328ca646c81b8a339cea126bf4d2bf4019e9a0c6bc971ce7d7acb8c892.png" />
 </div>
 </div>
+<p>Aún teniendo la mediana por valores cercanos a 100, hay una gran cantidad de datos atipicos a la derecha con distancias de ruptura entre 300km y 2000km.
+El 50% de los datos está por debajo de los 70km de distancia de ruptura</p>
 </section>
 <section id="tmax-periodo-maximo-confiable-para-la-senal-recibida">
 <h3>Tmax (Periodo máximo confiable para la señal recibida)<a class="headerlink" href="#tmax-periodo-maximo-confiable-para-la-senal-recibida" title="Link to this heading">#</a></h3>
@@ -1654,7 +1659,7 @@ Observar como un solo sismo pudo recoger información de 613 estaciones distinta
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Welcome to your Jupyter Book</p>
+        <p class="prev-next-title">Análisis de la aceleración máxima (PGA) registrada por las estaciones sísmicas a partir de un evento sísmico</p>
       </div>
     </a>
     <a class="right-next"
