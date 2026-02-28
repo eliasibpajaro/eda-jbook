@@ -1,0 +1,12 @@
+version: 1
+project:
+  toc:
+    - file: index.md
+
+    - title: Preparación de datos
+      children:
+        - file: a.ipynb
+
+#    - title: Exploración
+#      children:
+#        - file: notebooks/02_eda.ipynb

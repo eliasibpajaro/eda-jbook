@@ -1,0 +1,22 @@
+version: 1
+
+project:
+  # id: (lo deja el init)
+  title: EDA - Espectro de respuesta - Visualización de Datos
+
+  description: Exploratory Data Analysis (EDA)
+  keywords: [eda, data-science, python]
+  authors:
+    - name: Eliasib
+  # Pon esto cuando crees el repo:
+  # github: tu-usuario/tu-repo
+
+extends:
+  - toc.yml
+
+site:
+  template: book-theme
+  title: EDA - Mi Proyecto
+  # options:
+  #   logo: images/logo.png
+  #   favicon: images/favicon.ico
