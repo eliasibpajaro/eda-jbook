@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Análisis exploratorio de datos de aceleraciones espectrales en Colombia &#8212; EDA de aceleraciones espectrales en Colombia</title>
+    <title>Análisis exploratorio de datos de aceleraciones espectrales: NGA-West y Colombia &#8212; EDA de aceleraciones espectrales en Colombia</title>
   
   
   
@@ -178,7 +178,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Análisis exploratorio de datos de aceleraciones espectrales en Colombia
+                    Análisis exploratorio de datos de aceleraciones espectrales: NGA-West y Colombia
                 </a>
             </li>
         </ul>
@@ -374,7 +374,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Análisis exploratorio de datos de aceleraciones espectrales en Colombia</h1>
+    <h1>Análisis exploratorio de datos de aceleraciones espectrales: NGA-West y Colombia</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -399,50 +399,42 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="analisis-exploratorio-de-datos-de-aceleraciones-espectrales-en-colombia">
-<h1>Análisis exploratorio de datos de aceleraciones espectrales en Colombia<a class="headerlink" href="#analisis-exploratorio-de-datos-de-aceleraciones-espectrales-en-colombia" title="Link to this heading">#</a></h1>
-<p>Este libro reúne el análisis exploratorio de un conjunto de registros sísmicos usados para estudiar la aceleracion picoefectiva de periodo corto en Colombia y otros paises. El objetivo es presentar, de forma ordenada, el contexto del problema, los fundamentos mínimos para interpretar las variables y la exploración estadística del dataset.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="analisis-exploratorio-de-datos-de-aceleraciones-espectrales-nga-west-y-colombia">
+<h1>Análisis exploratorio de datos de aceleraciones espectrales: NGA-West y Colombia<a class="headerlink" href="#analisis-exploratorio-de-datos-de-aceleraciones-espectrales-nga-west-y-colombia" title="Link to this heading">#</a></h1>
+<p>Este libro presenta el análisis exploratorio de una base integrada de registros sísmicos provenientes de NGA-West y de Colombia, utilizada para estudiar la respuesta espectral de periodo corto y sus principales variables explicativas. El propósito es organizar, de manera clara y sistemática, el contexto del problema, los fundamentos mínimos para interpretar las variables y la exploración estadística del conjunto de datos.</p>
 <section id="proposito-del-libro">
 <h2>Propósito del libro<a class="headerlink" href="#proposito-del-libro" title="Link to this heading">#</a></h2>
 <p>El libro tiene tres propósitos complementarios:</p>
 <ol class="arabic simple">
-<li><p><strong>Contextualizar el problema</strong> desde la ingeniería sísmica y la modelación de movimiento del suelo.</p></li>
-<li><p><strong>Documentar las variables y el enfoque metodológico</strong> con el que se organizó el EDA.</p></li>
-<li><p><strong>Mostrar la exploración univariada, bivariada y multivariada</strong> como base para etapas posteriores de modelación predictiva.</p></li>
+<li><p><strong>Contextualizar el problema</strong> desde la ingeniería sísmica y la modelación del movimiento del suelo.</p></li>
+<li><p><strong>Documentar las variables y el enfoque metodológico</strong> con el que se estructuró el EDA.</p></li>
+<li><p><strong>Presentar la exploración univariada, bivariada y multivariada</strong> como base para etapas posteriores de modelación predictiva.</p></li>
 </ol>
 </section>
 <section id="estructura">
 <h2>Estructura<a class="headerlink" href="#estructura" title="Link to this heading">#</a></h2>
-<p>El contenido se organiza así:</p>
+<p>El contenido se organiza de la siguiente manera:</p>
 <ul class="simple">
-<li><p><strong>Contexto, problema y objetivos</strong>: justifica la pertinencia del estudio y define el alcance.</p></li>
-<li><p><strong>Marco teórico y metodología</strong>: resume conceptos clave de respuesta espectral, RotD50, transformación logarítmica y estructura del análisis.</p></li>
+<li><p><strong>Contexto, problema y objetivos</strong>: justifica la pertinencia del estudio y delimita su alcance.</p></li>
+<li><p><strong>Marco teórico y metodología</strong>: resume conceptos clave de respuesta espectral, RotD50, transformaciones logarítmicas y estructura del análisis.</p></li>
 <li><p><strong>EDA univariado</strong>: describe distribuciones, escalas y comportamiento individual de las variables.</p></li>
-<li><p><strong>EDA bivariado</strong>: explora relaciones entre predictoras y variable objetivo.</p></li>
-<li><p><strong>EDA multivariado</strong>: examina dependencias conjuntas, estructuras espaciales y patrones de correlación.</p></li>
-<li><p><strong>Conclusiones</strong>: sintetiza los principales hallazgos del análisis exploratorio.</p></li>
+<li><p><strong>EDA bivariado</strong>: explora relaciones entre la variable objetivo y las predictoras principales.</p></li>
+<li><p><strong>EDA multivariado</strong>: examina dependencias conjuntas, patrones espaciales y estructuras de correlación.</p></li>
+<li><p><strong>Conclusiones</strong>: sintetiza los hallazgos principales del análisis exploratorio.</p></li>
 </ul>
 </section>
 <section id="alcance-analitico">
 <h2>Alcance analítico<a class="headerlink" href="#alcance-analitico" title="Link to this heading">#</a></h2>
-<p>Aunque el dataset contiene espectros y metadatos asociados al evento, la estación y el sitio, este libro pone especial atención a la variable <code class="docutils literal notranslate"><span class="pre">T_0.01_RotD50</span></code>, utilizada como respuesta principal en el análisis. En varias secciones también se trabaja con su transformación a escala física, definida como:</p>
+<p>Aunque el dataset contiene espectros y metadatos asociados al evento, la estación y el sitio, este libro se concentra especialmente en la variable <code class="docutils literal notranslate"><span class="pre">T_0.01_RotD50</span></code>, utilizada como respuesta principal del análisis. En varias secciones también se trabaja con su transformación a escala física, definida como:</p>
 <div class="math notranslate nohighlight">
 \[Sa_{0.01} = \exp\left(T_{0.01,RotD50}\right)\]</div>
 </section>
 <section id="nota-sobre-la-interpretacion">
 <h2>Nota sobre la interpretación<a class="headerlink" href="#nota-sobre-la-interpretacion" title="Link to this heading">#</a></h2>
-<p>No todas las variables se encuentran almacenadas en escala física original. Algunas fueron transformadas logarítmicamente durante el preprocesamiento, por lo que su interpretación debe hacerse con cuidado y siempre distinguiendo entre la escala almacenada y la escala física original.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="contexto_objetivos.html">Contexto, problema y objetivos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="marco_metodologia.html">Marco teórico y metodología</a></li>
-<li class="toctree-l1"><a class="reference internal" href="univariado.html">Análisis exploratorio de datos univariado</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bivariado.html">Análisis exploratorio de datos bivariado</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multivariado.html">Análisis exploratorio de datos multivariado</a></li>
-<li class="toctree-l1"><a class="reference internal" href="conclusiones.html">Conclusiones del análisis exploratorio</a></li>
-</ul>
-</div>
+<p>No todas las variables se encuentran almacenadas en su escala física original. Algunas han sido transformadas logarítmicamente durante el preprocesamiento, por lo que su interpretación debe realizarse distinguiendo cuidadosamente entre la escala almacenada y la escala física original.</p>
 </section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">

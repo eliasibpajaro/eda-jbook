@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'marco_metodologia';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Análisis exploratorio de datos - Espectro de respuesta (Ing. Sísmica)" href="univariado.html" />
+    <link rel="next" title="Análisis exploratorio de datos univariado" href="univariado.html" />
     <link rel="prev" title="Contexto, problema y objetivos" href="contexto_objetivos.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -177,16 +177,16 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Análisis exploratorio de datos de aceleraciones espectrales en Colombia
+                    Análisis exploratorio de datos de aceleraciones espectrales: NGA-West y Colombia
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="contexto_objetivos.html">Contexto, problema y objetivos</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Marco teórico y metodología</a></li>
-<li class="toctree-l1"><a class="reference internal" href="univariado.html">Análisis exploratorio de datos - Espectro de respuesta (Ing. Sísmica)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bivariado.html">Análisis exploratorio de datos - Espectro de respuesta (Ing. Sísmica)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multivariado.html">Análisis exploratorio de datos - Espectro de respuesta (Ing. Sísmica)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="univariado.html">Análisis exploratorio de datos univariado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bivariado.html">Análisis exploratorio de datos bivariado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multivariado.html">Análisis exploratorio de datos multivariado</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conclusiones.html">Conclusiones del análisis exploratorio</a></li>
 </ul>
 
@@ -407,19 +407,19 @@ document.write(`
 <h1>Marco teórico y metodología<a class="headerlink" href="#marco-teorico-y-metodologia" title="Link to this heading">#</a></h1>
 <section id="fundamentos-del-problema">
 <h2>Fundamentos del problema<a class="headerlink" href="#fundamentos-del-problema" title="Link to this heading">#</a></h2>
-<p>La respuesta espectral resume la máxima respuesta de un sistema de un grado de libertad frente a una excitación sísmica. De forma general, el movimiento relativo del sistema puede representarse mediante:</p>
+<p>La respuesta espectral resume la máxima respuesta de un sistema de un grado de libertad sometido a una excitación sísmica. De forma general, el movimiento relativo del sistema puede representarse mediante:</p>
 <div class="math notranslate nohighlight">
 \[\ddot{x}(t) + 2\zeta\omega_n\dot{x}(t) + \omega_n^2 x(t) = -\ddot{x}_g(t)\]</div>
-<p>A partir de esta ecuación, se construyen ordenadas espectrales para distintos periodos y un amortiguamiento dado. La aceleración espectral puede representarse como:</p>
+<p>A partir de esta ecuación se construyen ordenadas espectrales para distintos periodos y para un amortiguamiento dado. La aceleración espectral puede expresarse como:</p>
 <div class="math notranslate nohighlight">
 \[S_a(T,\zeta)=\max_t\left|\ddot{x}(t)+\ddot{x}_g(t)\right|\]</div>
-<p>En este trabajo, la medida de interés se expresa mediante <code class="docutils literal notranslate"><span class="pre">RotD50</span></code>, una medida rotacional que resume la respuesta horizontal independiente de la orientación:</p>
+<p>En este trabajo, la medida de interés se representa mediante <code class="docutils literal notranslate"><span class="pre">RotD50</span></code>, una medida rotacional que resume la respuesta horizontal de manera independiente de la orientación:</p>
 <div class="math notranslate nohighlight">
 \[\mathrm{RotD50}(T)=P_{50}\left(S_a^{(\theta)}(T)\right)\]</div>
 </section>
 <section id="variable-objetivo">
 <h2>Variable objetivo<a class="headerlink" href="#variable-objetivo" title="Link to this heading">#</a></h2>
-<p>La variable principal del análisis es <code class="docutils literal notranslate"><span class="pre">T_0.01_RotD50</span></code>, correspondiente a la respuesta espectral en un periodo corto. En el dataset esta variable se encuentra almacenada en escala logarítmica natural, por lo que en varias secciones se usa también su forma en escala física:</p>
+<p>La variable principal del análisis es <code class="docutils literal notranslate"><span class="pre">T_0.01_RotD50</span></code>, correspondiente a la respuesta espectral en un periodo corto. En el dataset, esta variable se encuentra almacenada en escala logarítmica natural, por lo que en varias secciones se utiliza también su forma en escala física:</p>
 <div class="math notranslate nohighlight">
 \[Sa_{0.01} = \exp\left(T_{0.01,RotD50}\right)\]</div>
 </section>
@@ -428,39 +428,40 @@ document.write(`
 <p>Las predictoras de mayor interés son:</p>
 <ul class="simple">
 <li><p><strong>Magnitude</strong>: representa el tamaño del evento sísmico.</p></li>
-<li><p><strong>Rrup_OpenQuake</strong>: distancia de ruptura; en algunos flujos puede encontrarse almacenada en escala logarítmica y debe interpretarse en consecuencia.</p></li>
+<li><p><strong>Rrup_OpenQuake</strong>: distancia de ruptura; en algunos flujos puede encontrarse almacenada en escala logarítmica, por lo que su interpretación debe hacerse con cuidado.</p></li>
 <li><p><strong>Hypocenter Depth (km)</strong>: profundidad hipocentral.</p></li>
 <li><p><strong>Soil_Class</strong>: categorización simplificada de la condición de sitio.</p></li>
+<li><p><strong>origen</strong>: variable que distingue la procedencia de los registros dentro de la base integrada.</p></li>
 </ul>
 </section>
 <section id="consideraciones-metodologicas">
 <h2>Consideraciones metodológicas<a class="headerlink" href="#consideraciones-metodologicas" title="Link to this heading">#</a></h2>
-<p>El enfoque del libro es estrictamente exploratorio. No se persigue aquí un ajuste final de modelos, sino una caracterización ordenada del conjunto de datos. El análisis se organizó en tres niveles:</p>
+<p>El enfoque del libro es estrictamente exploratorio. No se pretende ajustar aquí un modelo predictivo final, sino caracterizar de manera ordenada el conjunto de datos y sus principales patrones estadísticos. El análisis se organiza en tres niveles:</p>
 </section>
 <section id="analisis-univariado">
 <h2>1. Análisis univariado<a class="headerlink" href="#analisis-univariado" title="Link to this heading">#</a></h2>
-<p>Se estudian distribuciones marginales, medidas resumen, posibles asimetrías, escalas de representación y comportamiento de variables numéricas y categóricas.</p>
+<p>Se estudian distribuciones marginales, medidas resumen, posibles asimetrías, escalas de representación y comportamiento individual de variables numéricas y categóricas.</p>
 </section>
 <section id="analisis-bivariado">
 <h2>2. Análisis bivariado<a class="headerlink" href="#analisis-bivariado" title="Link to this heading">#</a></h2>
-<p>Se examinan relaciones entre la variable objetivo y distintas predictoras. Esta etapa permite identificar tendencias, posibles dependencias monotónicas, contrastes por grupos y comportamientos diferenciales por clases de sitio u origen.</p>
+<p>Se examinan relaciones entre la variable objetivo y distintas predictoras. Esta etapa permite identificar tendencias generales, dependencias monotónicas, contrastes por grupos y diferencias asociadas a clases de sitio u origen.</p>
 </section>
 <section id="analisis-multivariado">
 <h2>3. Análisis multivariado<a class="headerlink" href="#analisis-multivariado" title="Link to this heading">#</a></h2>
-<p>Se revisan estructuras conjuntas mediante matrices de correlación, visualizaciones espaciales, cruces simultáneos entre variables y representaciones tridimensionales o geográficas cuando aportan claridad.</p>
+<p>Se revisan estructuras conjuntas mediante matrices de correlación, visualizaciones espaciales, cruces simultáneos entre variables y representaciones tridimensionales o geográficas cuando aportan claridad interpretativa.</p>
 </section>
 <section id="criterios-de-interpretacion">
 <h2>Criterios de interpretación<a class="headerlink" href="#criterios-de-interpretacion" title="Link to this heading">#</a></h2>
-<p>A lo largo del libro se siguen tres criterios:</p>
+<p>A lo largo del libro se siguen tres criterios principales:</p>
 <ol class="arabic simple">
-<li><p><strong>Separar la interpretación física de la estadística</strong>: una variable transformada en log no debe discutirse como si estuviera en kilómetros o en escala lineal.</p></li>
-<li><p><strong>Priorizar claridad visual</strong>: en varias gráficas se utilizan escalas logarítmicas cuando mejoran la lectura de la distribución.</p></li>
-<li><p><strong>Mantener trazabilidad conceptual</strong>: cada sección conecta la visualización con su significado dentro del problema sísmico.</p></li>
+<li><p><strong>Distinguir entre escala física y escala transformada</strong>: una variable almacenada en logaritmo no debe interpretarse como si estuviera en kilómetros o en escala lineal.</p></li>
+<li><p><strong>Priorizar claridad visual y consistencia analítica</strong>: en varias gráficas se emplean escalas logarítmicas cuando ello mejora la lectura de la distribución y evita interpretaciones engañosas.</p></li>
+<li><p><strong>Mantener trazabilidad conceptual</strong>: cada visualización se interpreta en función de su significado físico y de su papel dentro del problema sísmico.</p></li>
 </ol>
 </section>
 <section id="alcance-y-limitaciones">
 <h2>Alcance y limitaciones<a class="headerlink" href="#alcance-y-limitaciones" title="Link to this heading">#</a></h2>
-<p>Este EDA describe el comportamiento del dataset disponible, pero no constituye por sí mismo evidencia suficiente para generalizaciones fuera del dominio observado. Sus resultados deben interpretarse como base para etapas posteriores de modelación, validación y discusión ingenieril.</p>
+<p>Este EDA describe el comportamiento del dataset disponible, pero no constituye por sí mismo evidencia suficiente para generalizar resultados fuera del dominio observado. Sus hallazgos deben entenderse como base para etapas posteriores de modelación, validación y discusión ingenieril.</p>
 </section>
 </section>
 
@@ -508,7 +509,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Análisis exploratorio de datos - Espectro de respuesta (Ing. Sísmica)</p>
+        <p class="prev-next-title">Análisis exploratorio de datos univariado</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

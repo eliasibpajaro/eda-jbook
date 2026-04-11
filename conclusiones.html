@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'conclusiones';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Análisis exploratorio de datos - Espectro de respuesta (Ing. Sísmica)" href="multivariado.html" />
+    <link rel="prev" title="Análisis exploratorio de datos multivariado" href="multivariado.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -174,16 +174,16 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Análisis exploratorio de datos de aceleraciones espectrales en Colombia
+                    Análisis exploratorio de datos de aceleraciones espectrales: NGA-West y Colombia
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="contexto_objetivos.html">Contexto, problema y objetivos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="marco_metodologia.html">Marco teórico y metodología</a></li>
-<li class="toctree-l1"><a class="reference internal" href="univariado.html">Análisis exploratorio de datos - Espectro de respuesta (Ing. Sísmica)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bivariado.html">Análisis exploratorio de datos - Espectro de respuesta (Ing. Sísmica)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multivariado.html">Análisis exploratorio de datos - Espectro de respuesta (Ing. Sísmica)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="univariado.html">Análisis exploratorio de datos univariado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bivariado.html">Análisis exploratorio de datos bivariado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multivariado.html">Análisis exploratorio de datos multivariado</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Conclusiones del análisis exploratorio</a></li>
 </ul>
 
@@ -380,11 +380,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-variable-objetivo-requiere-interpretacion-por-escala">1. La variable objetivo requiere interpretación por escala</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#las-predictoras-dominantes-tienen-significado-fisico-claro">2. Las predictoras dominantes tienen significado físico claro</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-exploracion-evidencia-escalas-y-transformaciones-necesarias">3. La exploración evidencia escalas y transformaciones necesarias</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-eda-aporta-una-base-util-para-la-modelacion-posterior">4. El EDA aporta una base útil para la modelación posterior</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-dataset-debe-interpretarse-dentro-de-su-dominio-observado">5. El dataset debe interpretarse dentro de su dominio observado</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-variable-objetivo-exige-una-interpretacion-cuidadosa-de-la-escala">1. La variable objetivo exige una interpretación cuidadosa de la escala</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#las-predictoras-principales-conservan-coherencia-fisica-con-la-respuesta-espectral">2. Las predictoras principales conservan coherencia física con la respuesta espectral</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-exploracion-evidencia-la-importancia-de-las-transformaciones-y-de-la-escala-de-representacion">3. La exploración evidencia la importancia de las transformaciones y de la escala de representación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-integracion-de-nga-west-y-colombia-amplia-el-dominio-observado-pero-introduce-heterogeneidad">4. La integración de NGA-West y Colombia amplía el dominio observado, pero introduce heterogeneidad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-eda-aporta-una-base-util-para-la-modelacion-posterior">5. El EDA aporta una base útil para la modelación posterior</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-dataset-debe-interpretarse-dentro-de-su-dominio-observado">6. El dataset debe interpretarse dentro de su dominio observado</a></li>
 </ul>
             </nav>
         </div>
@@ -399,25 +400,29 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="conclusiones-del-analisis-exploratorio">
 <h1>Conclusiones del análisis exploratorio<a class="headerlink" href="#conclusiones-del-analisis-exploratorio" title="Link to this heading">#</a></h1>
 <p>El análisis exploratorio permite establecer varias conclusiones generales sobre el conjunto de datos y su utilidad para etapas posteriores de modelación:</p>
-<section id="la-variable-objetivo-requiere-interpretacion-por-escala">
-<h2>1. La variable objetivo requiere interpretación por escala<a class="headerlink" href="#la-variable-objetivo-requiere-interpretacion-por-escala" title="Link to this heading">#</a></h2>
-<p>La respuesta <code class="docutils literal notranslate"><span class="pre">T_0.01_RotD50</span></code> se encuentra almacenada en escala logarítmica, por lo que su lectura física mejora al trabajar también con <code class="docutils literal notranslate"><span class="pre">Sa_0_01</span> <span class="pre">=</span> <span class="pre">exp(T_0.01_RotD50)</span></code>. Esta distinción es clave para no mezclar interpretación estadística e interpretación ingenieril.</p>
+<section id="la-variable-objetivo-exige-una-interpretacion-cuidadosa-de-la-escala">
+<h2>1. La variable objetivo exige una interpretación cuidadosa de la escala<a class="headerlink" href="#la-variable-objetivo-exige-una-interpretacion-cuidadosa-de-la-escala" title="Link to this heading">#</a></h2>
+<p>La respuesta <code class="docutils literal notranslate"><span class="pre">T_0.01_RotD50</span></code> se encuentra almacenada en escala logarítmica, por lo que su lectura física se facilita al trabajar también con <code class="docutils literal notranslate"><span class="pre">Sa_0_01</span> <span class="pre">=</span> <span class="pre">exp(T_0.01_RotD50)</span></code>. Esta distinción es fundamental para no confundir la interpretación estadística con la interpretación ingenieril.</p>
 </section>
-<section id="las-predictoras-dominantes-tienen-significado-fisico-claro">
-<h2>2. Las predictoras dominantes tienen significado físico claro<a class="headerlink" href="#las-predictoras-dominantes-tienen-significado-fisico-claro" title="Link to this heading">#</a></h2>
-<p>Magnitud, distancia, profundidad y condición de sitio ofrecen una base consistente para explicar la variabilidad observada en la respuesta espectral de periodo corto. En particular, magnitud y distancia concentran gran parte de la variación esperable desde el punto de vista físico.</p>
+<section id="las-predictoras-principales-conservan-coherencia-fisica-con-la-respuesta-espectral">
+<h2>2. Las predictoras principales conservan coherencia física con la respuesta espectral<a class="headerlink" href="#las-predictoras-principales-conservan-coherencia-fisica-con-la-respuesta-espectral" title="Link to this heading">#</a></h2>
+<p>Magnitud, distancia, profundidad y condición de sitio constituyen una base conceptualmente consistente para explicar la variabilidad observada en la respuesta espectral de periodo corto. En particular, magnitud y distancia concentran una parte importante del comportamiento esperable desde el punto de vista físico.</p>
 </section>
-<section id="la-exploracion-evidencia-escalas-y-transformaciones-necesarias">
-<h2>3. La exploración evidencia escalas y transformaciones necesarias<a class="headerlink" href="#la-exploracion-evidencia-escalas-y-transformaciones-necesarias" title="Link to this heading">#</a></h2>
-<p>El comportamiento de varias variables sugiere que la escala lineal no siempre es la más adecuada para su lectura. En estos casos, el uso de transformaciones logarítmicas o visualizaciones adaptadas mejora la interpretación y evita conclusiones engañosas sobre asimetría o dispersión.</p>
+<section id="la-exploracion-evidencia-la-importancia-de-las-transformaciones-y-de-la-escala-de-representacion">
+<h2>3. La exploración evidencia la importancia de las transformaciones y de la escala de representación<a class="headerlink" href="#la-exploracion-evidencia-la-importancia-de-las-transformaciones-y-de-la-escala-de-representacion" title="Link to this heading">#</a></h2>
+<p>El comportamiento de varias variables muestra que la escala lineal no siempre es la más adecuada para su análisis. En estos casos, el uso de transformaciones logarítmicas o visualizaciones adaptadas mejora la interpretación y reduce el riesgo de conclusiones engañosas sobre asimetría, dispersión o concentración.</p>
+</section>
+<section id="la-integracion-de-nga-west-y-colombia-amplia-el-dominio-observado-pero-introduce-heterogeneidad">
+<h2>4. La integración de NGA-West y Colombia amplía el dominio observado, pero introduce heterogeneidad<a class="headerlink" href="#la-integracion-de-nga-west-y-colombia-amplia-el-dominio-observado-pero-introduce-heterogeneidad" title="Link to this heading">#</a></h2>
+<p>La combinación de registros provenientes de NGA-West y Colombia incrementa la cobertura del dataset en términos de magnitud, distancia, profundidad y condiciones de sitio. Sin embargo, esta integración también introduce heterogeneidad entre orígenes, lo que debe ser reconocido al interpretar patrones estadísticos y al plantear modelos posteriores.</p>
 </section>
 <section id="el-eda-aporta-una-base-util-para-la-modelacion-posterior">
-<h2>4. El EDA aporta una base útil para la modelación posterior<a class="headerlink" href="#el-eda-aporta-una-base-util-para-la-modelacion-posterior" title="Link to this heading">#</a></h2>
-<p>La revisión univariada, bivariada y multivariada permite detectar concentraciones, dependencias, contrastes espaciales y limitaciones del dataset. Esto hace que el libro funcione como una base documental previa a cualquier etapa de modelación predictiva o comparación entre algoritmos.</p>
+<h2>5. El EDA aporta una base útil para la modelación posterior<a class="headerlink" href="#el-eda-aporta-una-base-util-para-la-modelacion-posterior" title="Link to this heading">#</a></h2>
+<p>La revisión univariada, bivariada y multivariada permite identificar concentraciones, dependencias, contrastes espaciales, diferencias entre grupos y posibles limitaciones del conjunto de datos. En este sentido, el libro funciona como una base documental previa a cualquier etapa de modelación predictiva o comparación entre algoritmos.</p>
 </section>
 <section id="el-dataset-debe-interpretarse-dentro-de-su-dominio-observado">
-<h2>5. El dataset debe interpretarse dentro de su dominio observado<a class="headerlink" href="#el-dataset-debe-interpretarse-dentro-de-su-dominio-observado" title="Link to this heading">#</a></h2>
-<p>Los patrones encontrados son informativos para el conjunto de datos disponible, pero no deben extrapolarse automáticamente a condiciones fuera del rango de magnitudes, distancias, profundidades o clases de sitio representadas en la muestra.</p>
+<h2>6. El dataset debe interpretarse dentro de su dominio observado<a class="headerlink" href="#el-dataset-debe-interpretarse-dentro-de-su-dominio-observado" title="Link to this heading">#</a></h2>
+<p>Los patrones identificados son informativos para la muestra disponible, pero no deben extrapolarse automáticamente a condiciones fuera del rango de magnitudes, distancias, profundidades o clases de sitio representadas en la base analizada.</p>
 </section>
 </section>
 
@@ -457,7 +462,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Análisis exploratorio de datos - Espectro de respuesta (Ing. Sísmica)</p>
+        <p class="prev-next-title">Análisis exploratorio de datos multivariado</p>
       </div>
     </a>
 </div>
@@ -476,11 +481,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-variable-objetivo-requiere-interpretacion-por-escala">1. La variable objetivo requiere interpretación por escala</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#las-predictoras-dominantes-tienen-significado-fisico-claro">2. Las predictoras dominantes tienen significado físico claro</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-exploracion-evidencia-escalas-y-transformaciones-necesarias">3. La exploración evidencia escalas y transformaciones necesarias</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-eda-aporta-una-base-util-para-la-modelacion-posterior">4. El EDA aporta una base útil para la modelación posterior</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-dataset-debe-interpretarse-dentro-de-su-dominio-observado">5. El dataset debe interpretarse dentro de su dominio observado</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-variable-objetivo-exige-una-interpretacion-cuidadosa-de-la-escala">1. La variable objetivo exige una interpretación cuidadosa de la escala</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#las-predictoras-principales-conservan-coherencia-fisica-con-la-respuesta-espectral">2. Las predictoras principales conservan coherencia física con la respuesta espectral</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-exploracion-evidencia-la-importancia-de-las-transformaciones-y-de-la-escala-de-representacion">3. La exploración evidencia la importancia de las transformaciones y de la escala de representación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-integracion-de-nga-west-y-colombia-amplia-el-dominio-observado-pero-introduce-heterogeneidad">4. La integración de NGA-West y Colombia amplía el dominio observado, pero introduce heterogeneidad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-eda-aporta-una-base-util-para-la-modelacion-posterior">5. El EDA aporta una base útil para la modelación posterior</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-dataset-debe-interpretarse-dentro-de-su-dominio-observado">6. El dataset debe interpretarse dentro de su dominio observado</a></li>
 </ul>
   </nav></div>
 
