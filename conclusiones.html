@@ -6,8 +6,9 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; EDA de aceleraciones espectrales en Colombia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Conclusiones del análisis exploratorio &#8212; EDA de aceleraciones espectrales en Colombia</title>
   
   
   
@@ -56,9 +57,10 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
-    <link rel="index" title="Index" href="#" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'conclusiones';</script>
+    <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Análisis exploratorio de datos - Espectro de respuesta (Ing. Sísmica)" href="multivariado.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -121,8 +123,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -178,13 +178,13 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="contexto_objetivos.html">Contexto, problema y objetivos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="marco_metodologia.html">Marco teórico y metodología</a></li>
 <li class="toctree-l1"><a class="reference internal" href="univariado.html">Análisis exploratorio de datos - Espectro de respuesta (Ing. Sísmica)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bivariado.html">Análisis exploratorio de datos - Espectro de respuesta (Ing. Sísmica)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multivariado.html">Análisis exploratorio de datos - Espectro de respuesta (Ing. Sísmica)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="conclusiones.html">Conclusiones del análisis exploratorio</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Conclusiones del análisis exploratorio</a></li>
 </ul>
 
     </div>
@@ -256,7 +256,7 @@
       
       
       
-      <li><a href="https://github.com/eliasibpajaro/eda-jbook/issues/new?title=Issue%20on%20page%20%2Fgenindex.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/eliasibpajaro/eda-jbook/issues/new?title=Issue%20on%20page%20%2Fconclusiones.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -268,6 +268,54 @@
   </span>
 <span class="btn__text-container">Open issue</span>
 </a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/conclusiones.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
 </li>
       
   </ul>
@@ -309,7 +357,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -320,11 +370,23 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1></h1>
+    <h1>Conclusiones del análisis exploratorio</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-variable-objetivo-requiere-interpretacion-por-escala">1. La variable objetivo requiere interpretación por escala</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#las-predictoras-dominantes-tienen-significado-fisico-claro">2. Las predictoras dominantes tienen significado físico claro</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-exploracion-evidencia-escalas-y-transformaciones-necesarias">3. La exploración evidencia escalas y transformaciones necesarias</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-eda-aporta-una-base-util-para-la-modelacion-posterior">4. El EDA aporta una base útil para la modelación posterior</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-dataset-debe-interpretarse-dentro-de-su-dominio-observado">5. El dataset debe interpretarse dentro de su dominio observado</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -334,13 +396,50 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
+  <section class="tex2jax_ignore mathjax_ignore" id="conclusiones-del-analisis-exploratorio">
+<h1>Conclusiones del análisis exploratorio<a class="headerlink" href="#conclusiones-del-analisis-exploratorio" title="Link to this heading">#</a></h1>
+<p>El análisis exploratorio permite establecer varias conclusiones generales sobre el conjunto de datos y su utilidad para etapas posteriores de modelación:</p>
+<section id="la-variable-objetivo-requiere-interpretacion-por-escala">
+<h2>1. La variable objetivo requiere interpretación por escala<a class="headerlink" href="#la-variable-objetivo-requiere-interpretacion-por-escala" title="Link to this heading">#</a></h2>
+<p>La respuesta <code class="docutils literal notranslate"><span class="pre">T_0.01_RotD50</span></code> se encuentra almacenada en escala logarítmica, por lo que su lectura física mejora al trabajar también con <code class="docutils literal notranslate"><span class="pre">Sa_0_01</span> <span class="pre">=</span> <span class="pre">exp(T_0.01_RotD50)</span></code>. Esta distinción es clave para no mezclar interpretación estadística e interpretación ingenieril.</p>
+</section>
+<section id="las-predictoras-dominantes-tienen-significado-fisico-claro">
+<h2>2. Las predictoras dominantes tienen significado físico claro<a class="headerlink" href="#las-predictoras-dominantes-tienen-significado-fisico-claro" title="Link to this heading">#</a></h2>
+<p>Magnitud, distancia, profundidad y condición de sitio ofrecen una base consistente para explicar la variabilidad observada en la respuesta espectral de periodo corto. En particular, magnitud y distancia concentran gran parte de la variación esperable desde el punto de vista físico.</p>
+</section>
+<section id="la-exploracion-evidencia-escalas-y-transformaciones-necesarias">
+<h2>3. La exploración evidencia escalas y transformaciones necesarias<a class="headerlink" href="#la-exploracion-evidencia-escalas-y-transformaciones-necesarias" title="Link to this heading">#</a></h2>
+<p>El comportamiento de varias variables sugiere que la escala lineal no siempre es la más adecuada para su lectura. En estos casos, el uso de transformaciones logarítmicas o visualizaciones adaptadas mejora la interpretación y evita conclusiones engañosas sobre asimetría o dispersión.</p>
+</section>
+<section id="el-eda-aporta-una-base-util-para-la-modelacion-posterior">
+<h2>4. El EDA aporta una base útil para la modelación posterior<a class="headerlink" href="#el-eda-aporta-una-base-util-para-la-modelacion-posterior" title="Link to this heading">#</a></h2>
+<p>La revisión univariada, bivariada y multivariada permite detectar concentraciones, dependencias, contrastes espaciales y limitaciones del dataset. Esto hace que el libro funcione como una base documental previa a cualquier etapa de modelación predictiva o comparación entre algoritmos.</p>
+</section>
+<section id="el-dataset-debe-interpretarse-dentro-de-su-dominio-observado">
+<h2>5. El dataset debe interpretarse dentro de su dominio observado<a class="headerlink" href="#el-dataset-debe-interpretarse-dentro-de-su-dominio-observado" title="Link to this heading">#</a></h2>
+<p>Los patrones encontrados son informativos para el conjunto de datos disponible, pero no deben extrapolarse automáticamente a condiciones fuera del rango de magnitudes, distancias, profundidades o clases de sitio representadas en la muestra.</p>
+</section>
+</section>
 
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
-</div>
-
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -352,12 +451,40 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="multivariado.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Análisis exploratorio de datos - Espectro de respuesta (Ing. Sísmica)</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-variable-objetivo-requiere-interpretacion-por-escala">1. La variable objetivo requiere interpretación por escala</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#las-predictoras-dominantes-tienen-significado-fisico-claro">2. Las predictoras dominantes tienen significado físico claro</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-exploracion-evidencia-escalas-y-transformaciones-necesarias">3. La exploración evidencia escalas y transformaciones necesarias</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-eda-aporta-una-base-util-para-la-modelacion-posterior">4. El EDA aporta una base útil para la modelación posterior</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-dataset-debe-interpretarse-dentro-de-su-dominio-observado">5. El dataset debe interpretarse dentro de su dominio observado</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
