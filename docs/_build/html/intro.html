@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Análisis de la aceleración máxima (PGA) registrada por las estaciones sísmicas a partir de un evento sísmico &#8212; My sample book</title>
+    <title>Análisis exploratorio de datos de aceleraciones espectrales en Colombia &#8212; EDA de aceleraciones espectrales en Colombia</title>
   
   
   
@@ -57,10 +57,12 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Análisis exploratorio de datos - Espectro de respuesta (Ing. Sísmica)" href="univariado.html" />
+    <link rel="next" title="Contexto, problema y objetivos" href="contexto_objetivos.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -154,8 +156,8 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="EDA de aceleraciones espectrales en Colombia - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="EDA de aceleraciones espectrales en Colombia - Home"/>`);</script>
   
   
 </a></div>
@@ -176,14 +178,17 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Análisis de la aceleración máxima (PGA) registrada por las estaciones sísmicas a partir de un evento sísmico
+                    Análisis exploratorio de datos de aceleraciones espectrales en Colombia
                 </a>
             </li>
         </ul>
         <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="contexto_objetivos.html">Contexto, problema y objetivos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="marco_metodologia.html">Marco teórico y metodología</a></li>
 <li class="toctree-l1"><a class="reference internal" href="univariado.html">Análisis exploratorio de datos - Espectro de respuesta (Ing. Sísmica)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bivariado.html">Análisis exploratorio de datos - Espectro de respuesta (Ing. Sísmica)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multivariado.html">Análisis exploratorio de datos - Espectro de respuesta (Ing. Sísmica)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conclusiones.html">Conclusiones del análisis exploratorio</a></li>
 </ul>
 
     </div>
@@ -238,7 +243,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/eliasibpajaro/eda-jbook" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -255,7 +260,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/eliasibpajaro/eda-jbook/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -356,7 +361,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -367,11 +374,22 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Análisis de la aceleración máxima (PGA) registrada por las estaciones sísmicas a partir de un evento sísmico</h1>
+    <h1>Análisis exploratorio de datos de aceleraciones espectrales en Colombia</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proposito-del-libro">Propósito del libro</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estructura">Estructura</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alcance-analitico">Alcance analítico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nota-sobre-la-interpretacion">Nota sobre la interpretación</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -381,15 +399,50 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="analisis-de-la-aceleracion-maxima-pga-registrada-por-las-estaciones-sismicas-a-partir-de-un-evento-sismico">
-<h1>Análisis de la aceleración máxima (PGA) registrada por las estaciones sísmicas a partir de un evento sísmico<a class="headerlink" href="#analisis-de-la-aceleracion-maxima-pga-registrada-por-las-estaciones-sismicas-a-partir-de-un-evento-sismico" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="analisis-exploratorio-de-datos-de-aceleraciones-espectrales-en-colombia">
+<h1>Análisis exploratorio de datos de aceleraciones espectrales en Colombia<a class="headerlink" href="#analisis-exploratorio-de-datos-de-aceleraciones-espectrales-en-colombia" title="Link to this heading">#</a></h1>
+<p>Este libro reúne el análisis exploratorio de un conjunto de registros sísmicos usados para estudiar la aceleracion picoefectiva de periodo corto en Colombia y otros paises. El objetivo es presentar, de forma ordenada, el contexto del problema, los fundamentos mínimos para interpretar las variables y la exploración estadística del dataset.</p>
+<section id="proposito-del-libro">
+<h2>Propósito del libro<a class="headerlink" href="#proposito-del-libro" title="Link to this heading">#</a></h2>
+<p>El libro tiene tres propósitos complementarios:</p>
+<ol class="arabic simple">
+<li><p><strong>Contextualizar el problema</strong> desde la ingeniería sísmica y la modelación de movimiento del suelo.</p></li>
+<li><p><strong>Documentar las variables y el enfoque metodológico</strong> con el que se organizó el EDA.</p></li>
+<li><p><strong>Mostrar la exploración univariada, bivariada y multivariada</strong> como base para etapas posteriores de modelación predictiva.</p></li>
+</ol>
+</section>
+<section id="estructura">
+<h2>Estructura<a class="headerlink" href="#estructura" title="Link to this heading">#</a></h2>
+<p>El contenido se organiza así:</p>
+<ul class="simple">
+<li><p><strong>Contexto, problema y objetivos</strong>: justifica la pertinencia del estudio y define el alcance.</p></li>
+<li><p><strong>Marco teórico y metodología</strong>: resume conceptos clave de respuesta espectral, RotD50, transformación logarítmica y estructura del análisis.</p></li>
+<li><p><strong>EDA univariado</strong>: describe distribuciones, escalas y comportamiento individual de las variables.</p></li>
+<li><p><strong>EDA bivariado</strong>: explora relaciones entre predictoras y variable objetivo.</p></li>
+<li><p><strong>EDA multivariado</strong>: examina dependencias conjuntas, estructuras espaciales y patrones de correlación.</p></li>
+<li><p><strong>Conclusiones</strong>: sintetiza los principales hallazgos del análisis exploratorio.</p></li>
+</ul>
+</section>
+<section id="alcance-analitico">
+<h2>Alcance analítico<a class="headerlink" href="#alcance-analitico" title="Link to this heading">#</a></h2>
+<p>Aunque el dataset contiene espectros y metadatos asociados al evento, la estación y el sitio, este libro pone especial atención a la variable <code class="docutils literal notranslate"><span class="pre">T_0.01_RotD50</span></code>, utilizada como respuesta principal en el análisis. En varias secciones también se trabaja con su transformación a escala física, definida como:</p>
+<div class="math notranslate nohighlight">
+\[Sa_{0.01} = \exp\left(T_{0.01,RotD50}\right)\]</div>
+</section>
+<section id="nota-sobre-la-interpretacion">
+<h2>Nota sobre la interpretación<a class="headerlink" href="#nota-sobre-la-interpretacion" title="Link to this heading">#</a></h2>
+<p>No todas las variables se encuentran almacenadas en escala física original. Algunas fueron transformadas logarítmicamente durante el preprocesamiento, por lo que su interpretación debe hacerse con cuidado y siempre distinguiendo entre la escala almacenada y la escala física original.</p>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="contexto_objetivos.html">Contexto, problema y objetivos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="marco_metodologia.html">Marco teórico y metodología</a></li>
 <li class="toctree-l1"><a class="reference internal" href="univariado.html">Análisis exploratorio de datos - Espectro de respuesta (Ing. Sísmica)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bivariado.html">Análisis exploratorio de datos - Espectro de respuesta (Ing. Sísmica)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multivariado.html">Análisis exploratorio de datos - Espectro de respuesta (Ing. Sísmica)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conclusiones.html">Conclusiones del análisis exploratorio</a></li>
 </ul>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -423,11 +476,11 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="univariado.html"
+       href="contexto_objetivos.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Análisis exploratorio de datos - Espectro de respuesta (Ing. Sísmica)</p>
+        <p class="prev-next-title">Contexto, problema y objetivos</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -438,6 +491,24 @@ document.write(`
             
             
               
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proposito-del-libro">Propósito del libro</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estructura">Estructura</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alcance-analitico">Alcance analítico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nota-sobre-la-interpretacion">Nota sobre la interpretación</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -447,7 +518,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By Eliasib Pájaro
 </p>
 
   </div>

@@ -4,6 +4,9 @@
 format: jb-book
 root: intro
 chapters:
+- file: contexto_objetivos
+- file: marco_metodologia
 - file: univariado
 - file: bivariado
 - file: multivariado
+- file: conclusiones
