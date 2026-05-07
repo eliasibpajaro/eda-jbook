@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'conclusiones';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Análisis exploratorio de datos multivariado" href="multivariado.html" />
+    <link rel="prev" title="Modelos de Machine Learning para la predicción del PGA" href="ModelosML.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -184,6 +184,7 @@
 <li class="toctree-l1"><a class="reference internal" href="univariado.html">Análisis exploratorio de datos univariado</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bivariado.html">Análisis exploratorio de datos bivariado</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multivariado.html">Análisis exploratorio de datos multivariado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ModelosML.html">Modelos de Machine Learning para la predicción del PGA</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Conclusiones del análisis exploratorio</a></li>
 </ul>
 
@@ -386,6 +387,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-integracion-de-nga-west-y-colombia-amplia-el-dominio-observado-pero-introduce-heterogeneidad">4. La integración de NGA-West y Colombia amplía el dominio observado, pero introduce heterogeneidad</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-eda-aporta-una-base-util-para-la-modelacion-posterior">5. El EDA aporta una base útil para la modelación posterior</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-dataset-debe-interpretarse-dentro-de-su-dominio-observado">6. El dataset debe interpretarse dentro de su dominio observado</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#los-modelos-de-machine-learning-permiten-complementar-el-eda-con-una-evaluacion-predictiva">7. Los modelos de Machine Learning permiten complementar el EDA con una evaluación predictiva</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-correccion-de-escala-fue-esencial-para-evitar-transformaciones-redundantes">8. La corrección de escala fue esencial para evitar transformaciones redundantes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-comparacion-entre-algoritmos-evidencia-diferencias-en-capacidad-predictiva">9. La comparación entre algoritmos evidencia diferencias en capacidad predictiva</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-mejor-modelo-se-selecciono-mediante-un-criterio-combinado-de-desempeno">10. El mejor modelo se seleccionó mediante un criterio combinado de desempeño</a></li>
 </ul>
             </nav>
         </div>
@@ -424,6 +429,28 @@ document.write(`
 <h2>6. El dataset debe interpretarse dentro de su dominio observado<a class="headerlink" href="#el-dataset-debe-interpretarse-dentro-de-su-dominio-observado" title="Link to this heading">#</a></h2>
 <p>Los patrones identificados son informativos para la muestra disponible, pero no deben extrapolarse automáticamente a condiciones fuera del rango de magnitudes, distancias, profundidades o clases de sitio representadas en la base analizada.</p>
 </section>
+<section id="los-modelos-de-machine-learning-permiten-complementar-el-eda-con-una-evaluacion-predictiva">
+<h2>7. Los modelos de Machine Learning permiten complementar el EDA con una evaluación predictiva<a class="headerlink" href="#los-modelos-de-machine-learning-permiten-complementar-el-eda-con-una-evaluacion-predictiva" title="Link to this heading">#</a></h2>
+<p>La etapa de modelación permitió pasar de una interpretación exploratoria del dataset a una evaluación cuantitativa de su capacidad predictiva. A partir de las variables <code class="docutils literal notranslate"><span class="pre">Magnitude</span></code>, <code class="docutils literal notranslate"><span class="pre">Rrup_OpenQuake</span></code>, <code class="docutils literal notranslate"><span class="pre">Hypocenter</span> <span class="pre">Depth</span> <span class="pre">(km)</span></code> y <code class="docutils literal notranslate"><span class="pre">Soil_Class</span></code>, junto con variables derivadas coherentes con la escala del conjunto de datos, fue posible entrenar y comparar distintos algoritmos para estimar <code class="docutils literal notranslate"><span class="pre">T_0.01_RotD50</span></code>.</p>
+<p>Esta etapa confirma que el dataset no solo permite describir patrones, sino también construir modelos capaces de capturar relaciones entre las características sismológicas, la condición de sitio y la respuesta espectral de periodo corto.</p>
+</section>
+<section id="la-correccion-de-escala-fue-esencial-para-evitar-transformaciones-redundantes">
+<h2>8. La corrección de escala fue esencial para evitar transformaciones redundantes<a class="headerlink" href="#la-correccion-de-escala-fue-esencial-para-evitar-transformaciones-redundantes" title="Link to this heading">#</a></h2>
+<p>Un aspecto crítico de la modelación fue verificar que <code class="docutils literal notranslate"><span class="pre">Rrup_OpenQuake</span></code> ya se encontraba almacenado como <code class="docutils literal notranslate"><span class="pre">ln(Rrup)</span></code> y que <code class="docutils literal notranslate"><span class="pre">T_0.01_RotD50</span></code> ya correspondía a <code class="docutils literal notranslate"><span class="pre">ln(PGA)</span></code>. Por esta razón, no se aplicó nuevamente una transformación logarítmica sobre estas variables.</p>
+<p>En su lugar, se recuperó la distancia física mediante <code class="docutils literal notranslate"><span class="pre">Rrup_km</span> <span class="pre">=</span> <span class="pre">exp(Rrup_OpenQuake)</span></code> y se conservó <code class="docutils literal notranslate"><span class="pre">log_Rrup</span> <span class="pre">=</span> <span class="pre">Rrup_OpenQuake</span></code> como representación logarítmica de la distancia. Esta decisión permitió mantener consistencia entre la interpretación física de la distancia y la estructura de variables usada por los modelos.</p>
+</section>
+<section id="la-comparacion-entre-algoritmos-evidencia-diferencias-en-capacidad-predictiva">
+<h2>9. La comparación entre algoritmos evidencia diferencias en capacidad predictiva<a class="headerlink" href="#la-comparacion-entre-algoritmos-evidencia-diferencias-en-capacidad-predictiva" title="Link to this heading">#</a></h2>
+<p>Se evaluaron cinco modelos siguiendo la lógica del Dash: regresión lineal, XGBoost, Random Forest, SVR con kernel RBF y MLP. La comparación mediante RMSE, MAE, R² y R² en validación cruzada permitió identificar diferencias claras en el desempeño de los algoritmos.</p>
+<p>Los modelos no lineales pueden capturar relaciones más complejas entre magnitud, distancia, profundidad, clase de suelo y respuesta espectral. Sin embargo, su desempeño debe interpretarse junto con las métricas de validación, ya que una mayor flexibilidad también puede aumentar el riesgo de sobreajuste si el conjunto de datos no es suficientemente amplio o balanceado.</p>
+</section>
+<section id="el-mejor-modelo-se-selecciono-mediante-un-criterio-combinado-de-desempeno">
+<h2>10. El mejor modelo se seleccionó mediante un criterio combinado de desempeño<a class="headerlink" href="#el-mejor-modelo-se-selecciono-mediante-un-criterio-combinado-de-desempeno" title="Link to this heading">#</a></h2>
+<p>La selección del mejor modelo no se basó en una única métrica, sino en un ranking combinado que consideró RMSE, MAE, R² en prueba y R² promedio en validación cruzada. Este enfoque permite evitar que la decisión dependa exclusivamente de una métrica aislada.</p>
+<p>El modelo seleccionado representa el mejor equilibrio entre bajo error, capacidad explicativa y estabilidad relativa en validación cruzada. Por tanto, puede considerarse como el modelo más adecuado dentro del conjunto de algoritmos evaluados para esta etapa del análisis.</p>
+<p>Los resultados de Machine Learning muestran que el conjunto de datos contiene información suficiente para entrenar modelos predictivos de PGA aproximado. Sin embargo, las predicciones deben interpretarse dentro del dominio observado del dataset.</p>
+<p>El modelo no debe extrapolarse automáticamente a combinaciones de magnitud, distancia, profundidad o clase de suelo poco representadas en la base. Por tanto, la modelación debe entenderse como una herramienta válida dentro del rango de datos disponible, no como una ecuación general de predicción de movimiento fuerte fuera de dicho dominio.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -457,12 +484,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="multivariado.html"
+       href="ModelosML.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Análisis exploratorio de datos multivariado</p>
+        <p class="prev-next-title">Modelos de Machine Learning para la predicción del PGA</p>
       </div>
     </a>
 </div>
@@ -487,6 +514,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-integracion-de-nga-west-y-colombia-amplia-el-dominio-observado-pero-introduce-heterogeneidad">4. La integración de NGA-West y Colombia amplía el dominio observado, pero introduce heterogeneidad</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-eda-aporta-una-base-util-para-la-modelacion-posterior">5. El EDA aporta una base útil para la modelación posterior</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-dataset-debe-interpretarse-dentro-de-su-dominio-observado">6. El dataset debe interpretarse dentro de su dominio observado</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#los-modelos-de-machine-learning-permiten-complementar-el-eda-con-una-evaluacion-predictiva">7. Los modelos de Machine Learning permiten complementar el EDA con una evaluación predictiva</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-correccion-de-escala-fue-esencial-para-evitar-transformaciones-redundantes">8. La corrección de escala fue esencial para evitar transformaciones redundantes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-comparacion-entre-algoritmos-evidencia-diferencias-en-capacidad-predictiva">9. La comparación entre algoritmos evidencia diferencias en capacidad predictiva</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-mejor-modelo-se-selecciono-mediante-un-criterio-combinado-de-desempeno">10. El mejor modelo se seleccionó mediante un criterio combinado de desempeño</a></li>
 </ul>
   </nav></div>
 
