@@ -61,7 +61,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Marco teórico y metodología" href="marco_metodologia.html" />
-    <link rel="prev" title="Análisis exploratorio de datos de aceleraciones espectrales en Colombia" href="intro.html" />
+    <link rel="prev" title="Análisis exploratorio de datos de aceleraciones espectrales: NGA-West y Colombia" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -175,16 +175,17 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Análisis exploratorio de datos de aceleraciones espectrales en Colombia
+                    Análisis exploratorio de datos de aceleraciones espectrales: NGA-West y Colombia
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Contexto, problema y objetivos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="marco_metodologia.html">Marco teórico y metodología</a></li>
-<li class="toctree-l1"><a class="reference internal" href="univariado.html">Análisis exploratorio de datos - Espectro de respuesta (Ing. Sísmica)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bivariado.html">Análisis exploratorio de datos - Espectro de respuesta (Ing. Sísmica)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multivariado.html">Análisis exploratorio de datos - Espectro de respuesta (Ing. Sísmica)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="univariado.html">Análisis exploratorio de datos univariado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bivariado.html">Análisis exploratorio de datos bivariado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multivariado.html">Análisis exploratorio de datos multivariado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ModelosML.html">Modelos de Machine Learning para la predicción del PGA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conclusiones.html">Conclusiones del análisis exploratorio</a></li>
 </ul>
 
@@ -402,20 +403,20 @@ document.write(`
 <h1>Contexto, problema y objetivos<a class="headerlink" href="#contexto-problema-y-objetivos" title="Link to this heading">#</a></h1>
 <section id="contexto-sismico-y-pertinencia">
 <h2>Contexto sísmico y pertinencia<a class="headerlink" href="#contexto-sismico-y-pertinencia" title="Link to this heading">#</a></h2>
-<p>Colombia se ubica en una región tectónicamente activa, influenciada por la interacción entre varias placas y bloques corticales. En este contexto, la estimación de aceleraciones espectrales es un insumo relevante para el diseño sismo-resistente, la evaluación de amenaza y la construcción de modelos de predicción del movimiento del suelo.</p>
-<p>La disponibilidad de bases de datos instrumentales permite complementar los enfoques empíricos tradicionales con análisis basados en datos. En particular, el uso de análisis exploratorio facilita entender la estructura del dataset, identificar patrones dominantes y preparar el terreno para comparaciones posteriores entre modelos predictivos.</p>
+<p>La estimación de aceleraciones espectrales es un insumo fundamental en ingeniería sismorresistente, evaluación de amenaza y desarrollo de modelos de predicción del movimiento del suelo. En este contexto, la disponibilidad de registros instrumentales provenientes tanto de Colombia como de bases internacionales como NGA-West permite ampliar el rango de observación y enriquecer el análisis de variables relevantes para la respuesta espectral.</p>
+<p>La integración de registros de distintos orígenes incrementa la cobertura en magnitud, distancia, profundidad y condiciones de sitio, pero también introduce heterogeneidad en la muestra. Por ello, antes de avanzar hacia etapas de modelación, resulta necesario caracterizar la estructura del dataset, sus escalas, sus distribuciones y las relaciones principales entre variables.</p>
 </section>
 <section id="problema-de-investigacion">
 <h2>Problema de investigación<a class="headerlink" href="#problema-de-investigacion" title="Link to this heading">#</a></h2>
-<p>La calibración de relaciones predictivas específicas para Colombia enfrenta limitaciones asociadas al tamaño muestral, la heterogeneidad espacial de los registros y la disponibilidad de variables de sitio más detalladas. En consecuencia, antes de construir modelos, es necesario caracterizar rigurosamente el comportamiento de las variables observadas.</p>
-<p>Desde esa perspectiva, este libro parte de una pregunta práctica:</p>
+<p>La construcción de modelos predictivos para respuesta espectral requiere comprender previamente el comportamiento estadístico del conjunto de datos disponible. En un dataset combinado como el utilizado en este libro, esta necesidad es aún más importante, ya que la integración de registros de NGA-West y Colombia puede generar diferencias de escala, composición y variabilidad entre subconjuntos.</p>
+<p>Desde esta perspectiva, este libro parte de la siguiente pregunta práctica:</p>
 <blockquote>
-<div><p>¿Qué patrones estadísticos, relaciones y escalas dominan la respuesta espectral de periodo corto y sus principales predictoras dentro del conjunto de datos disponible?</p>
+<div><p>¿Qué patrones estadísticos, relaciones y escalas dominan la respuesta espectral de periodo corto y sus principales predictoras dentro de una base integrada de registros sísmicos de NGA-West y Colombia?</p>
 </div></blockquote>
 </section>
 <section id="objetivo-general">
 <h2>Objetivo general<a class="headerlink" href="#objetivo-general" title="Link to this heading">#</a></h2>
-<p>Caracterizar exploratoriamente un conjunto de registros sísmicos usados para el estudio de aceleraciones espectrales en Colombia, con énfasis en la respuesta <code class="docutils literal notranslate"><span class="pre">T_0.01_RotD50</span></code> y en sus relaciones con magnitud, distancia, profundidad y condición de sitio.</p>
+<p>Caracterizar exploratoriamente una base integrada de registros sísmicos de NGA-West y Colombia, con énfasis en la respuesta <code class="docutils literal notranslate"><span class="pre">T_0.01_RotD50</span></code> y en sus relaciones con magnitud, distancia, profundidad, condición de sitio y origen del registro.</p>
 </section>
 <section id="objetivos-especificos">
 <h2>Objetivos específicos<a class="headerlink" href="#objetivos-especificos" title="Link to this heading">#</a></h2>
@@ -424,6 +425,7 @@ document.write(`
 <li><p>Examinar relaciones bivariadas entre la variable objetivo y las predictoras relevantes.</p></li>
 <li><p>Identificar patrones multivariados y espaciales que puedan ser útiles en etapas posteriores de modelación.</p></li>
 <li><p>Documentar de manera clara el significado físico y estadístico de las variables analizadas.</p></li>
+<li><p>Evaluar de forma exploratoria posibles diferencias asociadas al origen de los registros.</p></li>
 </ol>
 </section>
 <section id="variables-clave-del-problema">
@@ -433,13 +435,14 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">Magnitude</span></code>: magnitud momento del evento sísmico.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Rrup_OpenQuake</span></code>: distancia de ruptura.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Hypocenter</span> <span class="pre">Depth</span> <span class="pre">(km)</span></code>: profundidad hipocentral.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Soil_Class</span></code>: clasificación de sitio.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Soil_Class</span></code>: clasificación simplificada de sitio.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">origen</span></code>: procedencia del registro dentro de la base integrada.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">T_0.01_RotD50</span></code>: respuesta espectral objetivo en escala logarítmica.</p></li>
 </ul>
 </section>
 <section id="aporte-del-eda">
 <h2>Aporte del EDA<a class="headerlink" href="#aporte-del-eda" title="Link to this heading">#</a></h2>
-<p>El análisis exploratorio no reemplaza la modelación, pero sí cumple una función decisiva: permite detectar escalas, sesgos, concentraciones, valores atípicos, dependencias y posibles limitaciones del dataset. Por eso, este libro se entiende como una base documental previa a cualquier fase de ajuste o validación predictiva.</p>
+<p>El análisis exploratorio no sustituye la modelación, pero cumple una función esencial: permite identificar escalas, sesgos, concentraciones, valores atípicos, dependencias y posibles limitaciones del dataset. En este sentido, el libro constituye una base documental previa a cualquier fase de ajuste, validación o comparación de modelos predictivos.</p>
 </section>
 </section>
 
@@ -479,7 +482,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Análisis exploratorio de datos de aceleraciones espectrales en Colombia</p>
+        <p class="prev-next-title">Análisis exploratorio de datos de aceleraciones espectrales: NGA-West y Colombia</p>
       </div>
     </a>
     <a class="right-next"
